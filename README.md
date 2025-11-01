@@ -1,6 +1,6 @@
 tag
 ===
-**tag** is a command line tool to manipulate tags on Mac OS X files (10.9 Mavericks and above), and to query for files with those tags. **tag** can use the file system's built-in metadata search functionality to rapidly find all files that have been tagged with a given set of tags.
+**tag** is a command line tool to manipulate tags on Mac OS X files (original worked from 10.9 Mavericks to 10.11 El Capitan, but since 10.12 Sierra the tags and its colors were put in SQLite database and locked), and to query for files with those tags. **tag** now needs to use SQLite database in `~/Library/SyncedPreferences/com.apple.kvs/com.apple.KeyValueService-Production.sqlite`. Finding information about tags (color, etc.) can be found in column `ZPLISTDATAVALUE` of table `ZSYDMANAGEDKEYVALUE` where the `ZKEY` has value of `'FinderTagDict'`.
 
 Usage
 ---
@@ -176,7 +176,7 @@ As with the *find* operation, you may control the paths searched by *usage*:
 	tag --usage '*' /path/to/here
 	tag --usage '*' --home /path/to/here
 	
-### Colored Output
+### Colored Output (WIP for macOS 14.8 and above)
 
 If your terminal supports ANSI color sequences, you may pass the -c/--color option. With this option in effect, any tags with known colors will be displayed in approximately the right color. Note that support for this option is dependent upon parsing private Finder data, and so may not always be supported correctly.
 
